@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    private Rigidbody2D     rb;
+    private Rigidbody2D rb;
     [SerializeField]
-    private float           jumpForce = 100f, speed = 10f;
-    private float           movement;
-    private PlayerState     state = PlayerState.walking;
-    private Vector2         playerScale;
+    private float jumpForce = 100f, speed = 10f;
+    private Vector2 movement;
     [SerializeField]
-    private bool            facingRight = true;
+    private PlayerState state = PlayerState.walking;
+    private Vector2 playerScale;
+    [SerializeField]
+    private bool facingRight = true;
 
 
     private enum PlayerState
@@ -33,21 +34,20 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
         KeyInput();
-        Debug.Log(state);
     }
 
     private void KeyInput()
     {
         //Needs fixing
-        //if(state == PlayerState.walking)
+        if(state == PlayerState.walking)
         {
-            movement = Input.GetAxis("Horizontal") * Time.deltaTime;
-            transform.Translate(movement, 0, 0);
+            movement = new Vector2(Input.GetAxis("Horizontal"), 0);
+            rb.velocity = movement * speed;
             Flip();
 
 
-        if (Input.GetAxis("Vertical") > 0)
-            Jump();
+            if (Input.GetAxis("Vertical") > 0)
+                Jump();
         }
     }
 
@@ -70,13 +70,16 @@ public class Player_Movement : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce);
-        state = PlayerState.jumping;    
+        state = PlayerState.jumping;
+        Debug.Log("Now jumping");
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Floor"))
+        if (collision.gameObject.tag == "Floor" && state == PlayerState.jumping)
+        {
             state = PlayerState.walking;
+            Debug.Log("Now walking");
+        }
     }
-
 }
