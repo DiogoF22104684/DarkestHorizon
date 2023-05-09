@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Player_Movement playerMovement;
+    private Vector2 bulletScale;
+    private bool directionBool;
+
+    private void Start()
     {
-        
+        playerMovement = FindObjectOfType<Player_Movement>().GetComponent<Player_Movement>();
+    }
+
+    void Awake()
+    {
+        directionBool = playerMovement.facingRight;
+        bulletScale = transform.localScale;
+
+        if (directionBool)
+        {
+            bulletScale.x = 1f;
+        }
+        else
+        {
+            bulletScale.x = -1f;
+        }
     }
 
     // Update is called once per frame

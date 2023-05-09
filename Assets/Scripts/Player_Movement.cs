@@ -11,7 +11,7 @@ public class Player_Movement : MonoBehaviour
                      private Vector2        movement;
     [SerializeField] private PlayerState    state = PlayerState.walking;
                      private Vector2        playerScale;
-    [SerializeField] private bool           facingRight = true;
+    [SerializeField] public bool            facingRight = true;
     [SerializeField] private GameObject     gunPrefab;
 
     // Bullet information
@@ -107,7 +107,7 @@ public class Player_Movement : MonoBehaviour
             nextFireTime = Time.time + 1f / fireRate;
 
             Vector3 bulletDirection = (facingRight ? Vector3.right : Vector3.left);
-            Quaternion bulletRotation = Quaternion.Euler(0f, 0f, Random.Range(-bulletSpread, bulletSpread));
+            Quaternion bulletRotation = (facingRight ? Quaternion.Euler(0f, 0f, Random.Range(-bulletSpread, bulletSpread)) : Quaternion.Euler(-1f, 0f, Random.Range(-bulletSpread, bulletSpread)));
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
@@ -116,11 +116,12 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    public void GunTypeReciever(Sprite sprite)
+    public void GunTypeReciever(Sprite sprite, float weaponFireRate)
     {
+        fireRate = weaponFireRate;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
         hasBullets = true;
-        counter = 10;
+        counter = 11;
         AmmoCounterCheck();
     }
 

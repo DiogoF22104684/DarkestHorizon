@@ -11,23 +11,33 @@ public class GunPickup : MonoBehaviour
         Assault_Rifle,
         Shotgun,
         Pistol,
-        Bazooka
+        Sniper
     }
 
     private Player_Movement playerMovementScript;
 
-    [SerializeField] private Sprite Assault_Rifle, Shotgun, Pistol, Bazooka;
+    [SerializeField] private Sprite Assault_Rifle, Shotgun, Pistol, Sniper;
 
     // Start is called before the first frame update
     void Start()
     {
         playerMovementScript = FindObjectOfType<Player_Movement>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        switch (gunType)
+        {
+            case GunType.Assault_Rifle:
+                GetComponent<SpriteRenderer>().sprite = Assault_Rifle;
+                break;
+            case GunType.Pistol:
+                GetComponent<SpriteRenderer>().sprite = Pistol;
+                break;
+            case GunType.Shotgun:
+                GetComponent<SpriteRenderer>().sprite = Shotgun;
+                break;
+            case GunType.Sniper:
+                GetComponent<SpriteRenderer>().sprite = Sniper;
+                break;
+        }
     }
 
     public void GunTypeInfo()
@@ -35,16 +45,16 @@ public class GunPickup : MonoBehaviour
         switch(gunType)
         {
             case GunType.Assault_Rifle:
-                playerMovementScript.GunTypeReciever(Assault_Rifle);
+                playerMovementScript.GunTypeReciever(Assault_Rifle, 4f);
                 break;
             case GunType.Pistol:
-                playerMovementScript.GunTypeReciever(Pistol);
+                playerMovementScript.GunTypeReciever(Pistol, 2f);
                 break;
             case GunType.Shotgun:
-                playerMovementScript.GunTypeReciever(Shotgun);
+                playerMovementScript.GunTypeReciever(Shotgun, 1f);
                 break;
-            case GunType.Bazooka:
-                playerMovementScript.GunTypeReciever(Bazooka);
+            case GunType.Sniper:
+                playerMovementScript.GunTypeReciever(Sniper, 0.3f);
                 break;
         }
     }
