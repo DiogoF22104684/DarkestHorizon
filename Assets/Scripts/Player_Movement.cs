@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -12,16 +13,23 @@ public class Player_Movement : MonoBehaviour
                      private Vector2        playerScale;
     [SerializeField] private bool           facingRight = true;
     [SerializeField] private GameObject     gunPrefab;
-    
+
     // Bullet information
-    public GameObject bulletPrefab; 
-    public float fireRate = 2f; 
-    public float bulletSpeed = 10f; 
-    public float bulletSpread = 1f; 
-    public Transform firePoint; 
-    private float nextFireTime = 0f;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float fireRate = 2f;
+    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float bulletSpread = 1f;
+    [SerializeField] private Transform firePoint;
+                     private float nextFireTime = 0f;
 
+    //Gun information
+    private int counter = 10;
+    private Sprite gunSprite;
+    private bool hasBullets = false;
+    private float gunSpeed = 5f;
 
+    //UI information
+    [SerializeField] private Text ammoText;
 
     private enum PlayerState
     {
@@ -91,6 +99,11 @@ public class Player_Movement : MonoBehaviour
 
     private void Shoot()
     {
+
+        AmmoCounterCheck();
+
+        if (hasBullets)
+        {
             nextFireTime = Time.time + 1f / fireRate;
 
             Vector3 bulletDirection = (facingRight ? Vector3.right : Vector3.left);
@@ -100,12 +113,50 @@ public class Player_Movement : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
 
             Destroy(bullet, 2f);
+        }
     }
 
     public void GunTypeReciever(Sprite sprite)
     {
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
+        hasBullets = true;
+        counter = 10;
+        AmmoCounterCheck();
+    }
 
+    private void ThrowGun()
+    {
+
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
+        
+        GameObject newGun = Instantiate(gunPrefab, firePoint.position, Quaternion.identity);
+        Vector3 gunDirection = (facingRight ? Vector3.right : Vector3.left);
+        newGun.GetComponent<Rigidbody2D>().velocity = gunDirection * gunSpeed;
+
+        SpriteRenderer spriteRenderer = gunPrefab.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null && gunSprite != null)
+        {
+            spriteRenderer.sprite = gunSprite;
+        }
+
+        Destroy(newGun, 2f);
+
+    }
+
+    private void AmmoCounterCheck()
+    {
+        if(counter > 0)
+        {
+            counter -= 1;
+            ammoText.text = counter.ToString();
+        }
+        else if (counter <= 0 && hasBullets == true)
+        {
+            hasBullets = false;
+            ammoText.text = "0";
+            ThrowGun();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
