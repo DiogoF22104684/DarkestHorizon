@@ -36,15 +36,19 @@ public class GunPickup : MonoBehaviour
         {
             case GunType.Assault_Rifle:
                 playerMovementScript.GunTypeReciever(Assault_Rifle);
+
                 break;
             case GunType.Pistol:
                 playerMovementScript.GunTypeReciever(Pistol);
+
                 break;
             case GunType.Shotgun:
                 playerMovementScript.GunTypeReciever(Shotgun);
+
                 break;
             case GunType.Bazooka:
                 playerMovementScript.GunTypeReciever(Bazooka);
+
                 break;
         }
     }
