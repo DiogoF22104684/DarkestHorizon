@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    private Player_Movement playerMovement;
+    [SerializeField] private Player_Movement playerMovement;
     private Vector2 bulletScale;
     private bool directionBool;
 
-    private void Start()
-    {
-        playerMovement = FindObjectOfType<Player_Movement>().GetComponent<Player_Movement>();
-    }
 
     void Awake()
     {

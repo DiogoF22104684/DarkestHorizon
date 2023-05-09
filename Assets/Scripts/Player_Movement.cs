@@ -107,7 +107,7 @@ public class Player_Movement : MonoBehaviour
             nextFireTime = Time.time + 1f / fireRate;
 
             Vector3 bulletDirection = (facingRight ? Vector3.right : Vector3.left);
-            Quaternion bulletRotation = (facingRight ? Quaternion.Euler(0f, 0f, Random.Range(-bulletSpread, bulletSpread)) : Quaternion.Euler(-1f, 0f, Random.Range(-bulletSpread, bulletSpread)));
+            Quaternion bulletRotation = Quaternion.Euler(0f, 0f, Random.Range(-bulletSpread, bulletSpread));
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;

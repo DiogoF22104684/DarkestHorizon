@@ -5,7 +5,8 @@ using UnityEngine;
 public class GunPickup : MonoBehaviour
 {
     [SerializeField] private GunType gunType;
-    
+    [SerializeField] private bool isGameManager = false;
+
     private enum GunType
     {
         Assault_Rifle,
@@ -23,21 +24,29 @@ public class GunPickup : MonoBehaviour
     {
         playerMovementScript = FindObjectOfType<Player_Movement>();
 
-        switch (gunType)
+        if(!isGameManager)
         {
-            case GunType.Assault_Rifle:
-                GetComponent<SpriteRenderer>().sprite = Assault_Rifle;
-                break;
-            case GunType.Pistol:
-                GetComponent<SpriteRenderer>().sprite = Pistol;
-                break;
-            case GunType.Shotgun:
-                GetComponent<SpriteRenderer>().sprite = Shotgun;
-                break;
-            case GunType.Sniper:
-                GetComponent<SpriteRenderer>().sprite = Sniper;
-                break;
+            switch (gunType)
+            {
+                case GunType.Assault_Rifle:
+                    GetComponent<SpriteRenderer>().sprite = Assault_Rifle;
+                    break;
+                case GunType.Pistol:
+                    GetComponent<SpriteRenderer>().sprite = Pistol;
+                    break;
+                case GunType.Shotgun:
+                    GetComponent<SpriteRenderer>().sprite = Shotgun;
+                    break;
+                case GunType.Sniper:
+                    GetComponent<SpriteRenderer>().sprite = Sniper;
+                    break;
+            }
         }
+    }
+
+    void Update()
+    {
+        Cheats();
     }
 
     public void GunTypeInfo()
@@ -56,6 +65,33 @@ public class GunPickup : MonoBehaviour
             case GunType.Sniper:
                 playerMovementScript.GunTypeReciever(Sniper, 0.3f);
                 break;
+        }
+    }
+
+    private void Cheats()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            gunType = GunType.Assault_Rifle;
+            GunTypeInfo();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            gunType = GunType.Pistol;
+            GunTypeInfo();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            gunType = GunType.Shotgun;
+            GunTypeInfo();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            gunType = GunType.Sniper;
+            GunTypeInfo();
         }
     }
 }

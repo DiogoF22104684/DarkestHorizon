@@ -16,15 +16,6 @@ public class Player_State : MonoBehaviour
         playerMovement = gameObject.GetComponent<Player_Movement>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            Die();
-        }
-    }
-
     private void Die()
     {
         playerMovement.enabled = false;
@@ -44,5 +35,7 @@ public class Player_State : MonoBehaviour
 
 
     }
+
+    
 
 }
