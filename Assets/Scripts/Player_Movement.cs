@@ -5,15 +5,13 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    [SerializeField]
-    private float jumpForce = 100f, speed = 10f;
-    private Vector2 movement;
-    [SerializeField]
-    private PlayerState state = PlayerState.walking;
-    private Vector2 playerScale;
-    [SerializeField]
-    private bool facingRight = true;
+                     private Rigidbody2D    rb;
+    [SerializeField] private float          jumpForce = 100f, speed = 10f;
+                     private Vector2        movement;
+    [SerializeField] private PlayerState    state = PlayerState.walking;
+                     private Vector2        playerScale;
+    [SerializeField] private bool           facingRight = true;
+    [SerializeField] private GameObject     gunPrefab;
 
 
     private enum PlayerState
@@ -35,6 +33,8 @@ public class Player_Movement : MonoBehaviour
     {
         KeyInput();
     }
+
+    #region Movement
 
     private void KeyInput()
     {
@@ -74,12 +74,25 @@ public class Player_Movement : MonoBehaviour
         Debug.Log("Now jumping");
     }
 
+    #endregion
+
+    public void GunTypeReciever(Sprite sprite)
+    {
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor" && state == PlayerState.jumping)
         {
             state = PlayerState.walking;
             Debug.Log("Now walking");
+        }
+
+        if (collision.gameObject.tag == "Gun")
+        {
+            collision.gameObject.GetComponent<GunPickup>().GunTypeInfo();
+            Destroy(collision.gameObject);
         }
     }
 }
