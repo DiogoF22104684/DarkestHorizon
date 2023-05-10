@@ -63,7 +63,7 @@ public class Player_Movement : MonoBehaviour
         if(state == PlayerState.walking)
         {
             movement = new Vector2(Input.GetAxis("Horizontal"), 0);
-            rb.velocity = movement * speed;
+            rb.velocity = (movement * speed) + (Vector2.down * 9.8f);
             Flip();
 
 
