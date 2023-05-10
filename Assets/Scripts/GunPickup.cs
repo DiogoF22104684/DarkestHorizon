@@ -22,7 +22,6 @@ public class GunPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovementScript = FindObjectOfType<Player_Movement>();
 
         if(!isGameManager)
         {
@@ -46,6 +45,7 @@ public class GunPickup : MonoBehaviour
 
     void Update()
     {
+        playerMovementScript = FindObjectOfType<Player_Movement>();
         Cheats();
     }
 

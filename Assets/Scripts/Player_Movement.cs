@@ -56,6 +56,9 @@ public class Player_Movement : MonoBehaviour
 
     private void KeyInput()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+            Die();
+
         if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
             Shoot();
@@ -161,6 +164,13 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        counter = 0;
+        AmmoCounterCheck();
+        Destroy(this.gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor" && state == PlayerState.jumping)
@@ -173,6 +183,11 @@ public class Player_Movement : MonoBehaviour
         {
             collision.gameObject.GetComponent<GunPickup>().GunTypeInfo();
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("Fall") && collision.gameObject.CompareTag("Enemy"))
+        {
+            Die();
         }
     }
 }

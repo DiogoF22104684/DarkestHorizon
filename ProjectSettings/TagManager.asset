@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - Gun
   - Ammo Text
+  - Fall
+  - Enemy
   layers:
   - Default
   - TransparentFX
