@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 104617086795159718}
   throwForce: 3000
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 104617086795159724}
 --- !u!1 &104617088086944254
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Gun
+  - Ammo Text
   layers:
   - Default
   - TransparentFX

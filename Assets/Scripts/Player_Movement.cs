@@ -43,6 +43,7 @@ public class Player_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerScale = transform.localScale;
+        ammoText = GameObject.FindGameObjectWithTag("Ammo Text").GetComponent<Text>();
     }
 
     // Update is called once per frame
