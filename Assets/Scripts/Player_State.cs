@@ -16,26 +16,25 @@ public class Player_State : MonoBehaviour
         playerMovement = gameObject.GetComponent<Player_Movement>();
     }
 
-    private void Die()
+    private void Update()
     {
-        playerMovement.enabled = false;
-
-        // Vector2 throwDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        Vector2 throwDirection = Vector2.left + Vector2.up;
-        // Apply the force to the player in the random direction
-        playerRigidbody.velocity = throwDirection * throwForce;
-
-        StartCoroutine(DeathTimer());
+        if (Input.GetKeyDown(KeyCode.T))
+            Die();
     }
 
+    private void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
+    /* for later use with the animation
+    
     IEnumerator DeathTimer()
     {
         yield return new WaitForSeconds(3f);
-        Destroy(this.gameObject);
-
-
     }
-
+    
+     */
     
 
 }
