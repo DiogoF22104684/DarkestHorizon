@@ -458,26 +458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7780461
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7780461
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7780461
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -435
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 185
-      objectReference: {fileID: 0}
     - target: {fileID: 5146217922812804160, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1703,18 +1683,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1854310451}
-    - target: {fileID: 2781603533726240461, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9252177
-      objectReference: {fileID: 0}
-    - target: {fileID: 2781603533726240461, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.0114746
-      objectReference: {fileID: 0}
-    - target: {fileID: 2781603533726240461, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.302932
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
 --- !u!114 &891407099 stripped
@@ -2023,10 +1991,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2259192142041197400, guid: d335c744c14f74c488d6717415dc9960, type: 3}
-      propertyPath: gunType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2259192142041197404, guid: d335c744c14f74c488d6717415dc9960, type: 3}
       propertyPath: m_Name
       value: Gun Pickup
