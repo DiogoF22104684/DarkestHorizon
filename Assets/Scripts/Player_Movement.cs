@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +6,7 @@ public class Player_Movement : MonoBehaviour
                      private Rigidbody2D    rb;
     [SerializeField] private float          jumpForce = 100f, speed = 10f;
                      private Vector2        movement;
-    [SerializeField] private PlayerState    state = PlayerState.walking;
+    [SerializeField] private PlayerState    state = PlayerState.Walking;
                      private Vector2        playerScale;
     [SerializeField] public bool            facingRight = true;
     [SerializeField] private GameObject     gunPrefab;
@@ -20,12 +17,12 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float bulletSpread = 1f;
     [SerializeField] private Transform firePoint;
-                     private float nextFireTime = 0f;
+                     private float nextFireTime;
 
     //Gun information
     private int counter = 10;
     private Sprite gunSprite;
-    private bool hasBullets = false;
+    private bool hasBullets;
     private float gunSpeed = 5f;
 
     //UI information
@@ -33,8 +30,8 @@ public class Player_Movement : MonoBehaviour
 
     private enum PlayerState
     {
-        jumping,
-        walking
+        Jumping,
+        Walking
     }
 
 
@@ -64,7 +61,7 @@ public class Player_Movement : MonoBehaviour
             Shoot();
         }
 
-        if(state == PlayerState.walking)
+        if(state == PlayerState.Walking)
         {
             movement = new Vector2(Input.GetAxis("Horizontal"), 0);
             rb.velocity = (movement * speed) + (Vector2.down * 9.8f);
@@ -95,7 +92,7 @@ public class Player_Movement : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce);
-        state = PlayerState.jumping;
+        state = PlayerState.Jumping;
         Debug.Log("Now jumping");
     }
 
@@ -110,7 +107,7 @@ public class Player_Movement : MonoBehaviour
         {
             nextFireTime = Time.time + 1f / fireRate;
 
-            Vector3 bulletDirection = (facingRight ? Vector3.right : Vector3.left);
+            Vector2 bulletDirection = (facingRight ? Vector2.right : Vector2.left);
             Quaternion bulletRotation = Quaternion.Euler(0f, 0f, Random.Range(-bulletSpread, bulletSpread));
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
@@ -120,10 +117,11 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    public void GunTypeReciever(Sprite sprite, float weaponFireRate)
+    public void GunTypeReceiver(Sprite sprite, float weaponFireRate)
     {
         fireRate = weaponFireRate;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
+        gunSprite = sprite;
         hasBullets = true;
         counter = 11;
         AmmoCounterCheck();
@@ -131,19 +129,19 @@ public class Player_Movement : MonoBehaviour
 
     private void ThrowGun()
     {
-
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
+        Sprite gunHeld = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
         
         GameObject newGun = Instantiate(gunPrefab, firePoint.position, Quaternion.identity);
-        Vector3 gunDirection = (facingRight ? Vector3.right : Vector3.left);
+        Vector3 gunDirection = (facingRight ? Vector2.right : Vector2.left);
         newGun.GetComponent<Rigidbody2D>().velocity = gunDirection * gunSpeed;
 
         SpriteRenderer spriteRenderer = gunPrefab.GetComponent<SpriteRenderer>();
 
-        if (spriteRenderer != null && gunSprite != null)
+        if (gunSprite)
         {
-            spriteRenderer.sprite = gunSprite;
+            spriteRenderer.sprite = gunHeld;
         }
+        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
 
         Destroy(newGun, 2f);
 
@@ -156,7 +154,7 @@ public class Player_Movement : MonoBehaviour
             counter -= 1;
             ammoText.text = counter.ToString();
         }
-        else if (counter <= 0 && hasBullets == true)
+        else if (counter <= 0 && hasBullets)
         {
             hasBullets = false;
             ammoText.text = "0";
@@ -173,13 +171,13 @@ public class Player_Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor" && state == PlayerState.jumping)
+        if (collision.gameObject.CompareTag("Floor") && state == PlayerState.Jumping)
         {
-            state = PlayerState.walking;
+            state = PlayerState.Walking;
             Debug.Log("Now walking");
         }
 
-        if (collision.gameObject.tag == "Gun")
+        if (collision.gameObject.CompareTag("Gun"))
         {
             collision.gameObject.GetComponent<GunPickup>().GunTypeInfo();
             Destroy(collision.gameObject);

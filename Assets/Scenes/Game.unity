@@ -458,6 +458,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7780461
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7780461
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7780461
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -435
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146217922035190554, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 185
+      objectReference: {fileID: 0}
     - target: {fileID: 5146217922812804160, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1683,8 +1703,31 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1854310451}
+    - target: {fileID: 2781603533726240461, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.9252177
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781603533726240461, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.0114746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781603533726240461, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.302932
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc01e4a9adc6c0b4a83fdea141329e86, type: 3}
+--- !u!114 &891407099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5146217922012389521, guid: ac16ade1f05625c40b559aa68d8af829, type: 3}
+  m_PrefabInstance: {fileID: 258850389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1108279742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2190,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 104617086795159724, guid: 1065c67aaeb98f34db0eb453e0232ce1, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 891407099}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1065c67aaeb98f34db0eb453e0232ce1, type: 3}
 --- !u!1 &1751391022

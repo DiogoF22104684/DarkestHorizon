@@ -54,16 +54,16 @@ public class GunPickup : MonoBehaviour
         switch(gunType)
         {
             case GunType.Assault_Rifle:
-                playerMovementScript.GunTypeReciever(Assault_Rifle, 4f);
+                playerMovementScript.GunTypeReceiver(Assault_Rifle, 4f);
                 break;
             case GunType.Pistol:
-                playerMovementScript.GunTypeReciever(Pistol, 2f);
+                playerMovementScript.GunTypeReceiver(Pistol, 2f);
                 break;
             case GunType.Shotgun:
-                playerMovementScript.GunTypeReciever(Shotgun, 1f);
+                playerMovementScript.GunTypeReceiver(Shotgun, 1f);
                 break;
             case GunType.Sniper:
-                playerMovementScript.GunTypeReciever(Sniper, 0.3f);
+                playerMovementScript.GunTypeReceiver(Sniper, 0.3f);
                 break;
         }
     }

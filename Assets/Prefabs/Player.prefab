@@ -183,7 +183,7 @@ MonoBehaviour:
   jumpForce: 1700
   speed: 10
   state: 1
-  facingRight: 0
+  facingRight: 1
   gunPrefab: {fileID: 7763096015003076683, guid: f9ab12ea0afbbe9499cefe9e1f1aa73c, type: 3}
   bulletPrefab: {fileID: 2341041000908070505, guid: 30ce417ccd5ab0a4dbf0ba4554fb2697, type: 3}
   fireRate: 2
