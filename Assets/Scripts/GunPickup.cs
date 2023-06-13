@@ -15,7 +15,7 @@ public class GunPickup : MonoBehaviour
         Sniper
     }
 
-    private Player_Movement playerMovementScript;
+    private GunInfo gunInfo;
 
     [SerializeField] private Sprite Assault_Rifle, Shotgun, Pistol, Sniper;
 
@@ -45,7 +45,7 @@ public class GunPickup : MonoBehaviour
 
     void Update()
     {
-        playerMovementScript = FindObjectOfType<Player_Movement>();
+        gunInfo = FindObjectOfType<GunInfo>();
         Cheats();
     }
 
@@ -54,16 +54,16 @@ public class GunPickup : MonoBehaviour
         switch(gunType)
         {
             case GunType.Assault_Rifle:
-                playerMovementScript.GunTypeReceiver(Assault_Rifle, 4f);
+                gunInfo.GunTypeReceiver(Assault_Rifle, 4f);
                 break;
             case GunType.Pistol:
-                playerMovementScript.GunTypeReceiver(Pistol, 2f);
+                gunInfo.GunTypeReceiver(Pistol, 2f);
                 break;
             case GunType.Shotgun:
-                playerMovementScript.GunTypeReceiver(Shotgun, 1f);
+                gunInfo.GunTypeReceiver(Shotgun, 1f);
                 break;
             case GunType.Sniper:
-                playerMovementScript.GunTypeReceiver(Sniper, 0.3f);
+                gunInfo.GunTypeReceiver(Sniper, 0.3f);
                 break;
         }
     }
