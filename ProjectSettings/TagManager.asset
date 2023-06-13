@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Floor
   - Gun
   - Ammo Text
   - Fall
@@ -17,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Enemy
   - 
   - 
   - 

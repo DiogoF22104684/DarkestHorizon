@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BulletManager : MonoBehaviour
 {
-    [SerializeField] private Player_Movement playerMovement;
+    [FormerlySerializedAs("playerMovement")] [SerializeField] private GunInfo gunInfo;
     private Vector2 bulletScale;
     private bool directionBool;
 
 
     void Awake()
     {
-        directionBool = playerMovement.facingRight;
+        directionBool = gunInfo.facingRight;
         bulletScale = transform.localScale;
 
         if (directionBool)

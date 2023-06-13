@@ -15,7 +15,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void PlayerCheck()
     {
-        bool playerDead = GameObject.FindObjectOfType<Player_Movement>() == null;
+        bool playerDead = GameObject.FindObjectOfType<Player>() == null;
         if(playerDead && SceneManager.GetActiveScene().buildIndex != 0) 
         {
             GameObject player = Instantiate(PlayerPrefab, gameObject.transform.localPosition, Quaternion.identity);

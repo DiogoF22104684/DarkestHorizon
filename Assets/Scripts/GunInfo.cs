@@ -1,25 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player_Movement : MonoBehaviour
+public class GunInfo : MonoBehaviour
 {
-                     private Rigidbody2D    rb;
-    [SerializeField] private float          jumpForce = 100f, speed = 10f;
-                     private float          jumpGravity = 10f;
-                     private float          maxJumpTime = 0.1f;
-                     private Vector2        movement;
-    [SerializeField] private PlayerState    state = PlayerState.Walking;
-                     private Vector2        playerScale;
-    [SerializeField] public bool            facingRight = true;
     [SerializeField] private GameObject     gunPrefab;
 
     // Bullet information
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private float bulletSpeed = 10f;
-    [SerializeField] private float bulletSpread = 1f;
     [SerializeField] private Transform firePoint;
                      private float nextFireTime;
+                     public bool facingRight = true;
 
     //Gun information
     private int counter = 10;
@@ -41,8 +33,6 @@ public class Player_Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        playerScale = transform.localScale;
         ammoText = GetComponent<Text>();
         ammoText = GameObject.FindGameObjectWithTag("Ammo Text").GetComponent<Text>();
     }
@@ -52,60 +42,28 @@ public class Player_Movement : MonoBehaviour
     {
         KeyInput();
     }
-
-    #region Movement
-
+    
     private void KeyInput()
     {
         if (Input.GetKeyDown(KeyCode.T))
             Die();
 
-        if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
-        {
-            Shoot();
-        }
-
-        if(state == PlayerState.Walking)
-        {
-            movement = new Vector2(Input.GetAxis("Horizontal"), 0);
-            rb.velocity = (movement * speed) + (Vector2.down * 9.8f);
-            Flip();
-
-
-            if (Input.GetAxis("Vertical") > 0)
-            {
-                Jump();
-            }
-        }
-    }
-
-    private void Flip()
-    {
         if (Input.GetAxis("Horizontal") > 0 && !facingRight)
         {
             facingRight = !facingRight;
-            playerScale.x = 1;
-            transform.localScale = playerScale;
         }
         else if (Input.GetAxis("Horizontal") < 0 && facingRight)
         {
             facingRight = !facingRight;
-            playerScale.x = -1;
-            transform.localScale = playerScale;
+        }
+        
+        if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+        {
+            Shoot();
         }
     }
-
-    private void Jump()
-    {
-        rb.AddForce(Vector2.up * jumpForce);
-        rb.gravityScale = jumpGravity;
-        state = PlayerState.Jumping;
-        Debug.Log("Now jumping");
-    }
-
-    #endregion
-
-    #region Shooting
+    
+#region Shooting
     private void Shoot()
     {
         AmmoCounterCheck();
@@ -183,12 +141,6 @@ public class Player_Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor") && state == PlayerState.Jumping)
-        {
-            state = PlayerState.Walking;
-            Debug.Log("Now walking");
-        }
-
         if (collision.gameObject.CompareTag("Gun"))
         {
             collision.gameObject.GetComponent<GunPickup>().GunTypeInfo();
