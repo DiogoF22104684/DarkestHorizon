@@ -5,6 +5,8 @@ public class Player_Movement : MonoBehaviour
 {
                      private Rigidbody2D    rb;
     [SerializeField] private float          jumpForce = 100f, speed = 10f;
+                     private float          jumpGravity = 10f;
+                     private float          maxJumpTime = 0.1f;
                      private Vector2        movement;
     [SerializeField] private PlayerState    state = PlayerState.Walking;
                      private Vector2        playerScale;
@@ -27,6 +29,7 @@ public class Player_Movement : MonoBehaviour
 
     //UI information
     [SerializeField] private Text ammoText;
+    [SerializeField] private Image gunUI;
 
     private enum PlayerState
     {
@@ -40,6 +43,7 @@ public class Player_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerScale = transform.localScale;
+        ammoText = GetComponent<Text>();
         ammoText = GameObject.FindGameObjectWithTag("Ammo Text").GetComponent<Text>();
     }
 
@@ -69,7 +73,9 @@ public class Player_Movement : MonoBehaviour
 
 
             if (Input.GetAxis("Vertical") > 0)
+            {
                 Jump();
+            }
         }
     }
 
@@ -92,15 +98,16 @@ public class Player_Movement : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce);
+        rb.gravityScale = jumpGravity;
         state = PlayerState.Jumping;
         Debug.Log("Now jumping");
     }
 
     #endregion
 
+    #region Shooting
     private void Shoot()
     {
-
         AmmoCounterCheck();
 
         if (hasBullets)
@@ -108,7 +115,7 @@ public class Player_Movement : MonoBehaviour
             nextFireTime = Time.time + 1f / fireRate;
 
             Vector2 bulletDirection = (facingRight ? Vector2.right : Vector2.left);
-            Quaternion bulletRotation = Quaternion.Euler(0f, 0f, Random.Range(-bulletSpread, bulletSpread));
+            Quaternion bulletRotation = (facingRight ? Quaternion.Euler(0f, 0f, 0) : Quaternion.Euler(0f, 0f, 180));
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
@@ -122,6 +129,8 @@ public class Player_Movement : MonoBehaviour
         fireRate = weaponFireRate;
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
         gunSprite = sprite;
+        gunUI.sprite = sprite;
+        gunUI.color = Color.white;  
         hasBullets = true;
         counter = 11;
         AmmoCounterCheck();
@@ -142,7 +151,8 @@ public class Player_Movement : MonoBehaviour
             spriteRenderer.sprite = gunHeld;
         }
         gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
-
+        gunUI.sprite = null;
+        gunUI.color = Color.clear;
         Destroy(newGun, 2f);
 
     }
@@ -162,6 +172,8 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+    #endregion
+    
     private void Die()
     {
         counter = 0;

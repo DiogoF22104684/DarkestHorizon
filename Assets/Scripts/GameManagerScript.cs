@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class GameManagerScript : MonoBehaviour
     private void PlayerCheck()
     {
         bool playerDead = GameObject.FindObjectOfType<Player_Movement>() == null;
-        if(playerDead) 
+        if(playerDead && SceneManager.GetActiveScene().buildIndex != 0) 
         {
             GameObject player = Instantiate(PlayerPrefab, gameObject.transform.localPosition, Quaternion.identity);
             camera.Follow = player.transform;
