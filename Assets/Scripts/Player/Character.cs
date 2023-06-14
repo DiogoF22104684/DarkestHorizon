@@ -154,19 +154,24 @@ public class Character : MonoBehaviour
         return onGround;
     }
 
-    virtual public void DealDamage(int damage, GameObject damageDealer)
+    virtual public void DealDamage(int damage, GameObject damageDealer, Animator animator)
     {
         if (invulnerabilityTimer > 0) return;
         
         health = health - damage;
         if (health == 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("Death");
         }
 
         invulnerabilityTimer = invulnerabilityDuration;
     }
 
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+    
     virtual protected void OnDrawGizmos()
     {
         if (groundDetector == null) return;

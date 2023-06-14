@@ -22,7 +22,7 @@ public class Player : Character
     private float           lastJumpTime;
     private float           initialGravity;
     private int             nJumps = 0;
-    private Vector2         characterScale;
+    private Vector2         trueCharacterScale;
     private bool            facingRight = true;
 
     private Dictionary<GameObject, float>   hitTime;
@@ -32,7 +32,7 @@ public class Player : Character
         base.Awake();
 
         initialGravity = rb.gravityScale;
-        characterScale = transform.localScale;
+        trueCharacterScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -60,14 +60,14 @@ public class Player : Character
 
         if (Input.GetAxis("Horizontal") > 0 && !facingRight)
         {
-            characterScale.x = 1;
-            transform.localScale = characterScale;
+            trueCharacterScale.x = 1;
+            transform.localScale = trueCharacterScale;
             facingRight = !facingRight;
         }
         else if (Input.GetAxis("Horizontal") < 0 && facingRight)
         {
-            characterScale.x = -1;
-            transform.localScale = characterScale;
+            trueCharacterScale.x = -1;
+            transform.localScale = trueCharacterScale;
             facingRight = !facingRight;
         }
 
@@ -104,7 +104,7 @@ public class Player : Character
         Ant ant = collider.GetComponent<Ant>();
         if ((ant != null) && (rb.velocity.y < -1e-3))
         {
-            ant.DealDamage(1, gameObject);
+            ant.DealDamage(1, gameObject, collider.gameObject.GetComponent<Animator>());
 
             Vector2 currentVelocity = rb.velocity;
             currentVelocity.y = jumpVelocity;
@@ -123,7 +123,7 @@ public class Player : Character
         maxJumps = n;
     }
 
-    override public void DealDamage(int damage, GameObject damageDealer)
+    override public void DealDamage(int damage, GameObject damageDealer, Animator animator)
     {
         if (invulnerabilityTimer > 0) return;
 

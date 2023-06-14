@@ -1596,7 +1596,8 @@ GameObject:
   m_Component:
   - component: {fileID: 784154190}
   - component: {fileID: 784154191}
-  m_Layer: 0
+  - component: {fileID: 784154192}
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Fall
   m_Icon: {fileID: 0}
@@ -1644,6 +1645,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &784154192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784154189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bca315f2c812e149af100a316fd9fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &884691343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2466,6 +2479,78 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6611066528975487957, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066528975487957, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.376
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529348406119, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529348406119, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529664994235, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529664994235, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801273, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Size.x
+      value: 3.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801273, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Size.y
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801273, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0000000062931615
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801273, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.052790873
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801273, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801275, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801275, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801275, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801275, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801275, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801275, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611066529725801276, guid: 1153446be269d734da48df4c52c0d723, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 990e75e1931acfa498863f88e9e5e429, type: 2}
     - target: {fileID: 6611066529725801277, guid: 1153446be269d734da48df4c52c0d723, type: 3}
       propertyPath: m_Name
       value: Enemy

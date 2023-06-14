@@ -27,10 +27,11 @@ public class BulletManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Ant ant = collision.gameObject.GetComponent<Ant>();
-        if(ant != null)
-        {
-            ant.DealDamage(1, gameObject);
-        }
+            if(ant != null)
+            {
+                ant.DealDamage(1, gameObject, collision.gameObject.GetComponent<Animator>());
+            }
+
             Destroy(gameObject);
 
     }

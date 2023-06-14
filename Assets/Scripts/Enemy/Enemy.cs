@@ -45,7 +45,7 @@ public class Enemy : Character
                 if (playerRB.velocity.y < -1e-3) return;
             }
 
-            player.DealDamage(1, gameObject);
+            player.DealDamage(1, gameObject, collision.gameObject.GetComponent<Animator>());
         }
     }
 

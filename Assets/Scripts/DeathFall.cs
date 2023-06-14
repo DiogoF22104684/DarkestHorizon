@@ -9,8 +9,7 @@ public class DeathFall : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if(player != null)
         {
-            player.DealDamage(1, gameObject);
+            Destroy(player.gameObject);
         }
-        Destroy(gameObject);
     }
 }
