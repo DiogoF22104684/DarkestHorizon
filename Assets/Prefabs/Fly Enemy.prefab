@@ -259,7 +259,7 @@ MonoBehaviour:
   moveSpeed: 1
   groundDetector: {fileID: 6611066529664994235}
   groundDetectorRadius: 0.17
-  groundDetectorExtraRadius: 6
+  groundDetectorExtraRadius: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
