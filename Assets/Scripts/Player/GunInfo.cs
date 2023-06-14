@@ -23,12 +23,6 @@ public class GunInfo : MonoBehaviour
     [SerializeField] private Text ammoText;
     [SerializeField] private Image gunUI;
 
-    private enum PlayerState
-    {
-        Jumping,
-        Walking
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +79,7 @@ public class GunInfo : MonoBehaviour
     public void GunTypeReceiver(Sprite sprite, float weaponFireRate)
     {
         fireRate = weaponFireRate;
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = sprite;
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprite;
         gunSprite = sprite;
         gunUI.sprite = sprite;
         gunUI.color = Color.white;  
@@ -96,8 +90,8 @@ public class GunInfo : MonoBehaviour
 
     private void ThrowGun()
     {
-        Sprite gunHeld = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
-        
+        Sprite gunHeld = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+        gunPrefab.GetComponent<SpriteRenderer>().sprite = gunHeld;
         GameObject newGun = Instantiate(gunPrefab, firePoint.position, Quaternion.identity);
         Vector3 gunDirection = (facingRight ? Vector2.right : Vector2.left);
         newGun.GetComponent<Rigidbody2D>().velocity = gunDirection * gunSpeed;
@@ -108,7 +102,7 @@ public class GunInfo : MonoBehaviour
         {
             spriteRenderer.sprite = gunHeld;
         }
-        gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = null;
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
         gunUI.sprite = null;
         gunUI.color = Color.clear;
         Destroy(newGun, 2f);

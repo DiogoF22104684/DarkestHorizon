@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2259192142041197406}
   - component: {fileID: 2259192142041197405}
   - component: {fileID: 2259192142041197400}
+  - component: {fileID: 8164592319090421573}
   m_Layer: 0
   m_Name: Gun Pickup
   m_TagString: Gun
@@ -130,3 +131,24 @@ MonoBehaviour:
   Shotgun: {fileID: 21300000, guid: bfc8c1f1256b6354c9cb3f7085287230, type: 3}
   Pistol: {fileID: 21300000, guid: d3847289640fd3a4fa8d0887027fbdc0, type: 3}
   Sniper: {fileID: 21300000, guid: 393b09f44257d9f49992e4cfa84e78ca, type: 3}
+--- !u!50 &8164592319090421573
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259192142041197404}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

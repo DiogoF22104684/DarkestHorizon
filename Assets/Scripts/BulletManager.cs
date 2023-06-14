@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class BulletManager : MonoBehaviour
 {
-    [FormerlySerializedAs("playerMovement")] [SerializeField] private GunInfo gunInfo;
+    [SerializeField] private GunInfo gunInfo;
     private Vector2 bulletScale;
     private bool directionBool;
 
 
     void Awake()
     {
+        gunInfo = FindObjectOfType<GunInfo>().GetComponent<GunInfo>();
         directionBool = gunInfo.facingRight;
         bulletScale = transform.localScale;
 
@@ -25,18 +24,12 @@ public class BulletManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        Ant ant = collision.gameObject.GetComponent<Ant>();
+        if(ant != null)
         {
-            Destroy(collision.gameObject);
+            ant.DealDamage(1, gameObject);
         }
             Destroy(gameObject);
 
