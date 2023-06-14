@@ -29,7 +29,7 @@ public class BulletManager : MonoBehaviour
         Ant ant = collision.gameObject.GetComponent<Ant>();
             if(ant != null)
             {
-                ant.DealDamage(1, gameObject, collision.gameObject.GetComponent<Animator>());
+                ant.DealDamage(gunInfo.damage, gameObject, collision.gameObject.GetComponent<Animator>());
             }
 
             Destroy(gameObject);

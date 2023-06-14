@@ -508,6 +508,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 3020345530630867499, guid: 29e31100dcb0f2c49a8e745039afa39b, type: 3}
+      propertyPath: Sniper
+      value: 
+      objectReference: {fileID: 858824752, guid: 393b09f44257d9f49992e4cfa84e78ca, type: 3}
+    - target: {fileID: 3020345530630867499, guid: 29e31100dcb0f2c49a8e745039afa39b, type: 3}
+      propertyPath: Shotgun
+      value: 
+      objectReference: {fileID: -1335562289, guid: bfc8c1f1256b6354c9cb3f7085287230, type: 3}
+    - target: {fileID: 3020345530630867499, guid: 29e31100dcb0f2c49a8e745039afa39b, type: 3}
+      propertyPath: Assault_Rifle
+      value: 
+      objectReference: {fileID: 82839870, guid: e8c322375441a8d45a3839e8605bb7aa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29e31100dcb0f2c49a8e745039afa39b, type: 3}
 --- !u!4 &2781603533506514330 stripped

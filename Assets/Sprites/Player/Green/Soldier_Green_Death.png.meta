@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8c322375441a8d45a3839e8605bb7aa
+guid: f28c58d527fe43d438040fd504def4e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 23
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: design_Assault_rifle_V1.00_0
+      name: Soldier_Green_Death_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1
-        width: 65
-        height: 28
+        x: 12
+        y: 9
+        width: 22
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f47bd18aaffed6348901a4377aec9237
-      internalID: 82839870
+      spriteID: 253ad66009b069c4e9f010bf0a8d8e4b
+      internalID: 1684988764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Death_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 9
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3034e2eed0523b048af6425a56a83967
+      internalID: -1856605209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Death_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 9
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8032397397c87a4cbc006d5537bd48b
+      internalID: 636052361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Death_3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 9
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1529d8c41a2f12d43b04af67ad1a4baa
+      internalID: -263036951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Death_4
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 9
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42928d32a3ff0a642b73c20a83dcfffd
+      internalID: 1173093484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Death_5
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 8
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c67a1a231fc0043adb71e61dab4efe
+      internalID: 427544413
       vertices: []
       indices: 
       edges: []
@@ -129,14 +234,19 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      design_Assault_rifle_V1.00_0: 82839870
+      Soldier_Green_Death_2: 636052361
+      Soldier_Green_Death_5: 427544413
+      Soldier_Green_Death_0: 1684988764
+      Soldier_Green_Death_1: -1856605209
+      Soldier_Green_Death_4: 1173093484
+      Soldier_Green_Death_3: -263036951
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

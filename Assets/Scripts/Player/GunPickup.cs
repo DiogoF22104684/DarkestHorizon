@@ -45,31 +45,32 @@ public class GunPickup : MonoBehaviour
 
     void Update()
     {
-        gunInfo = FindObjectOfType<GunInfo>();
         Cheats();
     }
 
     public void GunTypeInfo()
     {
+        gunInfo = FindObjectOfType<GunInfo>().GetComponent<GunInfo>();
         switch(gunType)
         {
             case GunType.Assault_Rifle:
-                gunInfo.GunTypeReceiver(Assault_Rifle, 4f);
+                gunInfo.GunTypeReceiver(Assault_Rifle, 4f, 10f, 1, 31, false);
                 break;
             case GunType.Pistol:
-                gunInfo.GunTypeReceiver(Pistol, 2f);
+                gunInfo.GunTypeReceiver(Pistol, 2f, 10f, 1, 10, true);
                 break;
             case GunType.Shotgun:
-                gunInfo.GunTypeReceiver(Shotgun, 1f);
+                gunInfo.GunTypeReceiver(Shotgun, 2f, 15f, 2,11 , false);
                 break;
             case GunType.Sniper:
-                gunInfo.GunTypeReceiver(Sniper, 0.3f);
+                gunInfo.GunTypeReceiver(Sniper, 1f, 20f, 4,5 , false);
                 break;
         }
     }
 
     private void Cheats()
     {
+        gunInfo = FindObjectOfType<GunInfo>();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             gunType = GunType.Assault_Rifle;

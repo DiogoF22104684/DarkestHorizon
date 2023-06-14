@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8c322375441a8d45a3839e8605bb7aa
+guid: 31ad6973715cc454cb05501afaa3939a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 23
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,22 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: design_Assault_rifle_V1.00_0
+      name: Soldier_Green_Run_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1
-        width: 65
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 9
+        width: 32
+        height: 34
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f47bd18aaffed6348901a4377aec9237
-      internalID: 82839870
+      spriteID: c1bc5371f71db0944ae00ff229f72996
+      internalID: -1605738843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Run_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 10
+        width: 34
+        height: 35
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83c677ccdeae6148b97c8dbd8a48cf6
+      internalID: 19182242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Run_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 9
+        width: 31
+        height: 34
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435a8fb351675424789644b370eedacc
+      internalID: 1699420597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Run_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 10
+        width: 33
+        height: 34
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c0a814aa6c1bf4e8b3aa386d3446c2
+      internalID: -463576284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Run_5
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 11
+        width: 34
+        height: 34
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0d1e5409994ea4b991364a38a25d4c
+      internalID: 249585078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier_Green_Run_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 9
+        width: 30
+        height: 34
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001596d8b6c229c48901a7fe764084b6
+      internalID: -332708116
       vertices: []
       indices: 
       edges: []
@@ -129,14 +234,21 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      design_Assault_rifle_V1.00_0: 82839870
+      Soldier_Green_Run_1: 19182242
+      Soldier_Green_Run_2: 192977884
+      Soldier_Green_Run_0: -1605738843
+      Soldier_Green_Run_3: 1699420597
+      Soldier_Green_Run_4: -463576284
+      Soldier_Green_Run_7: -332708116
+      Soldier_Green_Run_6: -2139881353
+      Soldier_Green_Run_5: 249585078
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

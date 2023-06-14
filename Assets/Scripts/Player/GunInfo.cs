@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GunInfo : MonoBehaviour
@@ -8,7 +9,8 @@ public class GunInfo : MonoBehaviour
     // Bullet information
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate = 2f;
-    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] public int damage = 10;
     [SerializeField] private Transform firePoint;
                      private float nextFireTime;
                      public bool facingRight = true;
@@ -18,6 +20,8 @@ public class GunInfo : MonoBehaviour
     private Sprite gunSprite;
     private bool hasBullets;
     private float gunSpeed = 5f;
+    private bool isInfinite = false;
+    [SerializeField] private Sprite pistolSprite;
 
     //UI information
     [SerializeField] private Text ammoText;
@@ -29,6 +33,7 @@ public class GunInfo : MonoBehaviour
     {
         ammoText = GetComponent<Text>();
         ammoText = GameObject.FindGameObjectWithTag("Ammo Text").GetComponent<Text>();
+        GunTypeReceiver(pistolSprite, 2f, 10f, 1, 10, true);
     }
 
     // Update is called once per frame
@@ -40,7 +45,7 @@ public class GunInfo : MonoBehaviour
     private void KeyInput()
     {
         if (Input.GetKeyDown(KeyCode.T))
-            Die();
+            GetComponent<Animator>().SetTrigger("Death");
 
         if (Input.GetAxis("Horizontal") > 0 && !facingRight)
         {
@@ -70,21 +75,24 @@ public class GunInfo : MonoBehaviour
             Quaternion bulletRotation = (facingRight ? Quaternion.Euler(0f, 0f, 0) : Quaternion.Euler(0f, 0f, 180));
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * speed;
 
             Destroy(bullet, 2f);
         }
     }
 
-    public void GunTypeReceiver(Sprite sprite, float weaponFireRate)
+    public void GunTypeReceiver(Sprite sprite, float weaponFireRate, float bulletSpeed, int bulletDamage, int bulletCount, bool infiniteAmmo)
     {
+        isInfinite = infiniteAmmo;
         fireRate = weaponFireRate;
+        damage = bulletDamage;
+        speed = bulletSpeed;
         gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprite;
         gunSprite = sprite;
         gunUI.sprite = sprite;
         gunUI.color = Color.white;  
         hasBullets = true;
-        counter = 11;
+        counter = bulletCount;
         AmmoCounterCheck();
     }
 
@@ -106,21 +114,28 @@ public class GunInfo : MonoBehaviour
         gunUI.sprite = null;
         gunUI.color = Color.clear;
         Destroy(newGun, 2f);
-
+        GunTypeReceiver(pistolSprite, 2f, 10f, 1, 10, true);
     }
 
     private void AmmoCounterCheck()
     {
-        if(counter > 0)
+        if (isInfinite)
         {
-            counter -= 1;
-            ammoText.text = counter.ToString();
+            ammoText.text = "∞";
         }
-        else if (counter <= 0 && hasBullets)
+        else
         {
-            hasBullets = false;
-            ammoText.text = "0";
-            ThrowGun();
+            if(counter > 0)
+            {
+                counter -= 1;
+                ammoText.text = counter.ToString();
+            }
+            else if (counter <= 0 && hasBullets)
+            {
+                hasBullets = false;
+                ammoText.text = "0";
+                ThrowGun();
+            }
         }
     }
 

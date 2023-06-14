@@ -159,7 +159,7 @@ public class Character : MonoBehaviour
         if (invulnerabilityTimer > 0) return;
         
         health = health - damage;
-        if (health == 0)
+        if (health <= 0)
         {
             animator.SetTrigger("Death");
         }
