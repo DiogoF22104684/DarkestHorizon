@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
@@ -38,6 +39,10 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene(0);
+    
+    
         UpdateSensors();
 
         Vector2 currentVelocity = rb.velocity;
@@ -142,7 +147,7 @@ public class Player : Character
         health = health - damage;
         if (health == 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("Death");
         }
 
         if (hitTime == null) hitTime = new Dictionary<GameObject, float>();

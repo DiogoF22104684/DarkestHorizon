@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -27,12 +28,10 @@ public class GunInfo : MonoBehaviour
     [SerializeField] private Text ammoText;
     [SerializeField] private Image gunUI;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        ammoText = GetComponent<Text>();
-        ammoText = GameObject.FindGameObjectWithTag("Ammo Text").GetComponent<Text>();
+        ammoText = GameObject.FindObjectOfType<AmmoNumber>().GetComponent<Text>();
+        gunUI = ammoText.GetComponentInParent<Image>();
         GunTypeReceiver(pistolSprite, 2f, 10f, 1, 10, true);
     }
 
@@ -154,11 +153,6 @@ public class GunInfo : MonoBehaviour
         {
             collision.gameObject.GetComponent<GunPickup>().GunTypeInfo();
             Destroy(collision.gameObject);
-        }
-
-        if(collision.gameObject.CompareTag("Fall") && collision.gameObject.CompareTag("Enemy"))
-        {
-            Die();
         }
     }
 }

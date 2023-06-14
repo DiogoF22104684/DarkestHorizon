@@ -256,7 +256,7 @@ MonoBehaviour:
   maxHealth: 3
   invulnerabilityDuration: 2
   blinkDuration: 0.1
-  moveSpeed: 1
+  moveSpeed: 2
   groundDetector: {fileID: 6611066529664994235}
   groundDetectorRadius: 0.17
   groundDetectorExtraRadius: 0.4
