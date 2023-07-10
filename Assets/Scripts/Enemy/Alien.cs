@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ant : Enemy
+public class Alien : Enemy
 {
     // Update is called once per frame
     virtual protected void Update()

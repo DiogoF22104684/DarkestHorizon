@@ -106,10 +106,10 @@ public class Player : Character
 
     override protected bool ValidateGround(Collider2D collider)
     {
-        Ant ant = collider.GetComponent<Ant>();
-        if ((ant != null) && (rb.velocity.y < -1e-3))
+        Alien alien = collider.GetComponent<Alien>();
+        if ((alien != null) && (rb.velocity.y < -1e-3))
         {
-            ant.DealDamage(1, gameObject, collider.gameObject.GetComponent<Animator>());
+            alien.DealDamage(1, gameObject, collider.gameObject.GetComponent<Animator>());
 
             Vector2 currentVelocity = rb.velocity;
             currentVelocity.y = jumpVelocity;

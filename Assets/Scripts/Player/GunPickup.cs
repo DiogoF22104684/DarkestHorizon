@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunPickup : MonoBehaviour
 {
     [SerializeField] private GunType gunType;
-    [SerializeField] private bool isGameManager = false;
+    [SerializeField] public bool isGameManager = false;
 
     private enum GunType
     {

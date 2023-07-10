@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AntFollow : Ant
+public class AlienFollow : Alien
 {
     [SerializeField]
     private float sightRadius = 200.0f;

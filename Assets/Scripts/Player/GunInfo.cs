@@ -149,9 +149,10 @@ public class GunInfo : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Gun"))
+        GunPickup gunCollision = collision.gameObject.GetComponent<GunPickup>();
+        if (gunCollision != null && !gunCollision.isGameManager)
         {
-            collision.gameObject.GetComponent<GunPickup>().GunTypeInfo();
+            gunCollision.GunTypeInfo();
             Destroy(collision.gameObject);
         }
     }
