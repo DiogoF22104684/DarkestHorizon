@@ -146,14 +146,15 @@ public class GunInfo : MonoBehaviour
         AmmoCounterCheck();
         Destroy(this.gameObject);
     }
+    
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        GunPickup gunCollision = collision.gameObject.GetComponent<GunPickup>();
+        GunPickup gunCollision = other.gameObject.GetComponent<GunPickup>();
         if (gunCollision != null && !gunCollision.isGameManager)
         {
             gunCollision.GunTypeInfo();
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

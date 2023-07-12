@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6611066528975487946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.75, y: 0.376, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6611066529348406116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.68, y: -0.62, z: 0}
+  m_LocalPosition: {x: 1.2, y: -0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,9 +238,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000000062931615, y: 0.052790873}
-  m_Size: {x: 3.94, y: 0.77}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0.037327766}
+  m_Size: {x: 1.52369, y: 1.8381481}
+  m_Direction: 0
 --- !u!114 &6611066529725801272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,15 +254,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  invulnerabilityDuration: 2
+  invulnerabilityDuration: 1
   blinkDuration: 0.1
   moveSpeed: 1
   groundDetector: {fileID: 6611066529664994235}
   groundDetectorRadius: 0.17
-  groundDetectorExtraRadius: 1.66
+  groundDetectorExtraRadius: 0.69
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   wallDetector: {fileID: 6611066528975487957}
   groundAheadDetector: {fileID: 6611066529348406119}
   sightRadius: 3.5

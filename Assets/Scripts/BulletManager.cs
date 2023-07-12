@@ -31,7 +31,9 @@ public class BulletManager : MonoBehaviour
             {
                 alien.DealDamage(gunInfo.damage, gameObject, collision.gameObject.GetComponent<Animator>());
             }
-            Destroy(gameObject);
+            
+            if(collision.gameObject.tag != "Gun")
+                Destroy(gameObject);
 
     }
 }

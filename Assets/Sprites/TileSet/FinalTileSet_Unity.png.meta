@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -916,10 +916,10 @@ TextureImporter:
       FinalTileSet_Unity_7: -712734430
       FinalTileSet_Unity_16: 1919318349
       FinalTileSet_Unity_27: -1312952611
-      FinalTileSet_Unity_18: 312300421
+      FinalTileSet_Unity_37: -709961370
       FinalTileSet_Unity_31: -1081406610
       FinalTileSet_Unity_12: 1221583176
-      FinalTileSet_Unity_37: -709961370
+      FinalTileSet_Unity_14: 1819769452
       FinalTileSet_Unity_1: 1237014056
       FinalTileSet_Unity_13: -1222858550
       FinalTileSet_Unity_34: -479171160
@@ -945,12 +945,12 @@ TextureImporter:
       FinalTileSet_Unity_24: 1985547806
       FinalTileSet_Unity_28: -441709823
       FinalTileSet_Unity_33: -1854943041
+      FinalTileSet_Unity_18: 312300421
       FinalTileSet_Unity_8: 321272958
-      FinalTileSet_Unity_11: -123608810
       FinalTileSet_Unity_4: 643822341
       FinalTileSet_Unity_23: -921390967
       FinalTileSet_Unity_32: -92091488
-      FinalTileSet_Unity_14: 1819769452
+      FinalTileSet_Unity_11: -123608810
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
