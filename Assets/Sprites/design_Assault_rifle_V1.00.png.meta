@@ -108,10 +108,10 @@ TextureImporter:
       name: design_Assault_rifle_V1.00_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1
-        width: 65
-        height: 28
+        x: 75
+        y: 84
+        width: 31
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected int         maxHealth = 3;
     [SerializeField]
-    protected float       invulnerabilityDuration = 2;
+    protected float       invulnerabilityDuration = 1;
     [SerializeField]
     protected float       blinkDuration = 0.1f;
     [SerializeField]
